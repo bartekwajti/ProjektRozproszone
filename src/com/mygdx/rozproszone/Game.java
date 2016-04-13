@@ -37,27 +37,7 @@ public class Game extends ApplicationAdapter {
 	public void render () {
             
             level.startView();
-            /*
-            keyPressedFlag=false;
-            if(Gdx.input.isKeyPressed(Keys.UP)){
-                player1.speedUp(Gdx.graphics.getDeltaTime());
-                keyPressedFlag=true;
             
-            }
-            if(Gdx.input.isKeyPressed(Keys.DOWN)){
-                player1.slowDown(Gdx.graphics.getDeltaTime());
-                keyPressedFlag=true;
-            
-            }
-            if(Gdx.input.isKeyPressed(Keys.SPACE)){
-                player1.toBreak(Gdx.graphics.getDeltaTime());
-                keyPressedFlag=true;
-            
-            }
-            if(!keyPressedFlag){
-                player1.noAccelerateAction(Gdx.graphics.getDeltaTime());
-            }
-           /*/
             if(Gdx.input.isKeyPressed(Keys.UP)) 
             {
                 int tileW = 20;
