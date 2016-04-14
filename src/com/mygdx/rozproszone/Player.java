@@ -27,6 +27,7 @@ public class Player {
     private Sprite carImage;
     private Texture carTexture;
     private boolean ableToMove;
+    private boolean slowedDust;
     
     Player(float positionX, float positionY,String carTextureName){
         this.carTexture=new Texture(carTextureName);
@@ -46,6 +47,12 @@ public class Player {
     public boolean getAbleToMove(){
         return this.ableToMove;
     }
+     public void setSlowedDust(boolean b){
+        this.slowedDust = b;
+    }
+    public boolean getSlowedDust(){
+        return this.slowedDust;
+    }
     public void setPositionX(float positionX){
         this.positionX=positionX;
         this.carImage.setPosition(this.positionX,this.positionY);
@@ -55,50 +62,50 @@ public class Player {
         this.positionY=positionY;
         this.carImage.setPosition(this.positionX,this.positionY);
     }
-   @Deprecated
+   
     public void setVelocity(double velocity){
         this.velocity=velocity;
     }
-   @Deprecated
+   
     public float getPositionX(){
         return this.positionX;
     }
-   @Deprecated
+   
     public float getPositionY(){
         return this.positionY;
     }
-    @Deprecated
+    
     public double getVelocity(){
         return this.velocity;
     }
-    @Deprecated
+    
     public double getAcceleration(){
         return this.acceleration;
      }
-    @Deprecated
+    
     public double getDeccelerate(){
         return this.deaccelerate;
      }
     public Sprite getCarImage(){
         return this.carImage;
     }
-    @Deprecated
+    
     public void changePositionX(float changeX){
         this.positionX+=changeX;
         this.carImage.setPosition(this.positionX,this.positionY);
     }
-    @Deprecated
+    
     public void changePositionY(float changeY){
         this.positionY+=changeY;
         this.carImage.setPosition(this.positionX,this.positionY);
     }
-    @Deprecated
+    
     public void changePosition(float changeX,float changeY){
         this.positionX+=changeX;
         this.positionY+=changeY;
         this.carImage.setPosition(this.positionX,this.positionY);
     }
-    @Deprecated
+    
     public void changeVelocity(double changeVelocity){
         this.velocity+=changeVelocity;
     }

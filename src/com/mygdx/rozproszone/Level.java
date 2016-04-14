@@ -33,7 +33,8 @@ public class Level {
     private MapLayer layer0;
     private MapLayer layer1;
     private MapLayer layer2;
-    MapObjects objects;
+    MapObjects collisionObjects;
+    MapObjects slowDustObjects;
    
     
     Level(String levelTextureName){
@@ -42,7 +43,7 @@ public class Level {
         this.levelTexture=new Texture(levelTextureName);
         this.levelSprite=new Sprite(this.levelTexture,1366,768);
         batch = new SpriteBatch(); 
-        map = new TmxMapLoader().load("assets\\mapa.tmx");
+        map = new TmxMapLoader().load("assets//mapa.tmx");
         cam = new OrthographicCamera();
         cam.setToOrtho(false, w, h);
         cam.update();
@@ -53,7 +54,8 @@ public class Level {
         layer1.setVisible(true);
         layer2.setVisible(true);
         tiledMapRenderer = new OrthogonalTiledMapRenderer(map);
-        objects= map.getLayers().get("Warstwa Obiektu 1").getObjects();
+        collisionObjects= map.getLayers().get("Collision").getObjects();
+        slowDustObjects= map.getLayers().get("SlowDust").getObjects();
         
     }
     
@@ -80,13 +82,15 @@ public class Level {
     void updateView(){
         batch.end();
     }    
-    public MapLayer getObstacleLayer(){
-        return this.layer1;
-    }
+   
     
-    public MapObjects getObjects()
+    public MapObjects getCollisionObjects()
     {
-        return this.objects;
+        return this.collisionObjects;
+    }
+     public MapObjects getSlowDustObjects()
+    {
+        return this.slowDustObjects;
     }
              
 }
