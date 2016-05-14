@@ -10,6 +10,7 @@ public class DesktopLauncher {
 		config.width = 1366;
                 config.height = 768;
                 config.title = "Projekt - Przetwarzanie Rozproszone - Wyscigi";
+                config.resizable = false;
                 
                 new LwjglApplication(new Game(), config);
 	}
