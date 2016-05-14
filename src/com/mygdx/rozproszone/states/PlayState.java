@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.mygdx.rozproszone;
+package com.mygdx.rozproszone.states;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
@@ -11,6 +11,9 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.maps.objects.RectangleMapObject;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.physics.box2d.BodyDef;
+import com.mygdx.rozproszone.GameStateManager;
+import com.mygdx.rozproszone.Level;
+import com.mygdx.rozproszone.Player;
 
 /**
  *

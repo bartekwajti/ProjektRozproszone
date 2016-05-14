@@ -29,7 +29,7 @@ public class Player {
     private boolean ableToMove;
     private boolean slowedDust;
     
-    Player(float positionX, float positionY,String carTextureName){
+    public Player(float positionX, float positionY,String carTextureName){
         this.carTexture=new Texture(carTextureName);
         this.carImage=new Sprite(this.carTexture,0,0,this.carTexture.getWidth(),this.carTexture.getHeight());
         this.positionX=positionX;

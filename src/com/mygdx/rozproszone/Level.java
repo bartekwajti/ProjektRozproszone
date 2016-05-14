@@ -37,7 +37,7 @@ public class Level {
     MapObjects slowDustObjects;
    
     
-    Level(String levelTextureName){
+    public Level(String levelTextureName){
         float w = 1366;
         float h = 768;
         this.levelTexture=new Texture(levelTextureName);
@@ -73,13 +73,13 @@ public class Level {
         
     }
     
-    void draw(Player player){
+    public void draw(Player player){
         player.getCarImage().draw(batch);
        
 
     }
         
-    void updateView(){
+    public void updateView(){
         batch.end();
     }    
    

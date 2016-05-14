@@ -5,6 +5,7 @@
  */
 package com.mygdx.rozproszone;
 
+import com.mygdx.rozproszone.states.GameState;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import java.util.Stack;
 

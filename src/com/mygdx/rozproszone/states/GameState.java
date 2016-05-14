@@ -3,9 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.mygdx.rozproszone;
+package com.mygdx.rozproszone.states;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.mygdx.rozproszone.GameStateManager;
 
 /**
  *
