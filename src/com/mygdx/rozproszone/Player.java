@@ -140,4 +140,6 @@ public class Player {
        this.positionY+=velocity;
        this.carImage.setPosition(this.positionX,this.positionY);
     }
+
+    
 }

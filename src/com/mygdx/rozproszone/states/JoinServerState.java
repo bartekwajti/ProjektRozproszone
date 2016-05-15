@@ -59,7 +59,9 @@ public class JoinServerState extends GameState implements TextInputListener {
             Gdx.input.getTextInput(this, "Enter server ip", "localhost", "");
         else if(Gdx.input.isKeyJustPressed(Input.Keys.S))
         {
-            gsm.set(new PlayState(gsm));
+            PlayState playState = new PlayState(gsm);
+            playState.setServer(ip);
+            gsm.set(playState);
             dispose();
         }
                

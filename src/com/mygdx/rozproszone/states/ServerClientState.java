@@ -14,6 +14,7 @@ import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator.FreeTypeFontParameter;
 import com.mygdx.rozproszone.Game;
 import com.mygdx.rozproszone.GameStateManager;
+import com.mygdx.rozproszone.network.Server;
 
 /**
  *
@@ -58,8 +59,15 @@ public class ServerClientState extends GameState {
            
             if(selectedOption == 0) {
                 //start server
-                gsm.set(new PlayState(gsm));
-                dispose();
+                Server server = new Server(2); //server for 2 players
+                Thread th = new Thread(server);
+                th.start();
+                
+                //server.stop();
+                PlayState playState = new PlayState(gsm);
+                playState.setServer("localhost");
+                gsm.set(playState);
+//                dispose();
             }
             else if(selectedOption == 1) {
                 // join server

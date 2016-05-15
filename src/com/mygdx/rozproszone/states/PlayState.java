@@ -10,19 +10,29 @@ import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.maps.objects.RectangleMapObject;
 import com.badlogic.gdx.math.Rectangle;
+import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.mygdx.rozproszone.GameStateManager;
 import com.mygdx.rozproszone.Level;
 import com.mygdx.rozproszone.Player;
+import com.mygdx.rozproszone.network.Client;
+import com.mygdx.rozproszone.network.Client.PacketProvider;
+import com.mygdx.rozproszone.network.Packet;
+import com.mygdx.rozproszone.network.Server;
+import java.util.logging.Logger;
 
 /**
  *
  * @author Admin
  */
-public class PlayState extends GameState {
+public class PlayState extends GameState implements PacketProvider {
 
     private Player player1;
     private Level level;
+    
+    String server;
+    private int playerID = 0;
+    Client client;
     
     private Float angle =360.0f;
     private Float angleDelta = 5.0f;
@@ -153,6 +163,7 @@ public class PlayState extends GameState {
                 player1.setVelocity(0);
             }
         }
+        client.update();
     }
 
     @Override
@@ -203,6 +214,22 @@ public class PlayState extends GameState {
     @Override
     public void dispose() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Packet getPacket() {
+        Packet packet = new Packet(new Vector2(player1.getPositionX(), player1.getPositionY()),
+        angle,
+        playerID);
+        return packet;
+    }
+    
+    public void setServer(String server) {
+        this.server = server;
+        client = new Client(server, Server.PORT, this);
+        
+        this.playerID = client.getSetupPacket().playerID;
+        
     }
     
 }
